@@ -3,16 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ClickShopit - Loja Digital</title>
+  <title>ClickShopit</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <script defer src="index.js"></script>
 </head>
 <body>
   <header>
-    <img src="banner.jpg" alt="Banner ClickShopit" class="banner" />
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="#">Promoções</a>
+      <a href="#">Contato</a>
+    </nav>
+    <div class="banner-container">
+      <img src="banner.jpg" alt="Banner ClickShopit" class="banner" />
+    </div>
   </header>
-  <main class="product-grid" id="product-list">
-    <!-- Produtos gerados pelo JavaScript -->
+  <main>
+    <section>
+      <h2>Mais Vendidos</h2>
+      <div class="carousel" id="carousel1"></div>
+    </section>
+    <section>
+      <h2>Gift Cards</h2>
+      <div class="carousel" id="carousel2"></div>
+    </section>
+    <section>
+      <h2>Acessórios</h2>
+      <div class="carousel" id="carousel3"></div>
+    </section>
   </main>
 </body>
 </html>
