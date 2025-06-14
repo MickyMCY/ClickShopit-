@@ -8,7 +8,8 @@
   <script defer src="checkout.js"></script>
 </head>
 <body>
-  <div class="checkout-container">
+  <header><a href="index.html" class="back">⬅ Voltar</a></header>
+  <main class="checkout-container">
     <h2>Finalizar Compra</h2>
     <div class="cart-items" id="cart-items"></div>
     <div class="mpesa-box">
@@ -22,6 +23,17 @@
       <button type="submit">Comprar agora</button>
     </form>
     <div id="confirmation" class="hidden">✅ Pedido recebido!</div>
-  </div>
+  </main>
+  <footer class="payment-footer">
+    <div class="logos">
+      <img src="visa.png" alt="Visa" />
+      <img src="paypal.png" alt="PayPal" />
+      <img src="mpesa.png" alt="M-Pesa" />
+    </div>
+    <div class="company-logo">
+      <!-- Adiciona aqui a imagem da tua empresa -->
+      <span>ClickShopit™</span>
+    </div>
+  </footer>
 </body>
 </html>
