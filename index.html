@@ -2,52 +2,248 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ClickShopit - Loja Digital</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-    body { background: #f2f2f2; }
-    header { background: #111; color: white; padding: 20px; text-align: center; font-size: 24px; }
-    .products { display: flex; overflow-x: auto; padding: 20px; gap: 20px; }
-    .product { background: white; border-radius: 8px; min-width: 250px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 15px; flex-shrink: 0; }
-    .product img { width: 100%; border-radius: 5px; }
-    .product h3 { font-size: 18px; margin: 10px 0; }
-    .product p { font-size: 14px; color: #555; }
-    .price { font-weight: bold; color: #1a8917; margin: 10px 0; }
-    .btn { display: inline-block; padding: 10px; background: #1a8917; color: white; text-decoration: none; border-radius: 5px; text-align: center; margin-top: 5px; }
-    .btn.soldout { background: #aaa; pointer-events: none; }
-    .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50px; padding: 12px 20px; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.2); font-weight: bold; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+
+    header {
+      background: linear-gradient(90deg, #00f0ff, #7d00ff, #00ff95);
+      padding: 20px;
+      text-align: center;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+      animation: pulse 4s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { opacity: 1; }
+      to { opacity: 0.8; }
+    }
+
+    .banner-sub {
+      font-size: 14px;
+      color: #000;
+      margin-top: 10px;
+    }
+
+    .product-carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      scroll-behavior: smooth;
+    }
+
+    .product {
+      flex: 0 0 auto;
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .product h3 {
+      margin: 10px 0 5px;
+      font-size: 16px;
+    }
+
+    .product button {
+      background: #00f0ff;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .checkout {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      margin: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .checkout h2 {
+      text-align: center;
+      color: #7d00ff;
+    }
+
+    .checkout input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .checkout button {
+      width: 100%;
+      padding: 12px;
+      background: #00ff95;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .mpesa-box {
+      background: #f0f0f0;
+      color: #000;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .mpesa-box strong {
+      font-size: 18px;
+      color: #007e33;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: #fff;
+      padding: 12px 15px;
+      border-radius: 50px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .floating-whatsapp img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      background: #2ecc71;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      display: none;
+      animation: fade 10s ease-in-out forwards;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
-  <header>ClickShopit - Produtos Digitais</header>
 
-  <section class="products">
+  <header>
+    💳 Gift Cards Instantâneos | 🎧 Música • 🎮 Jogos • 🎁 Presentes Digitais
+    <div class="banner-sub">🔥 Pagamento por M-Pesa | Entrega automática por e-mail</div>
+  </header>
+
+  <div class="product-carousel">
     <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Google_Play_2022_icon.svg" alt="Google Play">
-      <h3>Gift Card Google Play - $10</h3>
-      <p>Entrega automática por e-mail</p>
-      <p class="price">950 MZN</p>
-      <a class="btn" href="checkout.html">Comprar agora</a>
+      <img src="https://i.imgur.com/xGg3W2Z.png" alt="Google Play">
+      <h3>Google Play - 10 USD</h3>
+      <button onclick="scrollToCheckout()">Comprar agora</button>
     </div>
-
     <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Apple_iTunes_logo.svg" alt="iTunes">
-      <h3>Gift Card iTunes - $10</h3>
-      <p>Válido na App Store e iTunes</p>
-      <p class="price">970 MZN</p>
-      <a class="btn" href="checkout.html">Comprar agora</a>
+      <img src="https://i.imgur.com/fBBA4GI.png" alt="iTunes">
+      <h3>iTunes - 10 USD</h3>
+      <button onclick="scrollToCheckout()">Comprar agora</button>
     </div>
-
     <div class="product">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Steam_icon_logo.svg" alt="Steam">
-      <h3>Gift Card Steam - $10</h3>
-      <p>Ideal para jogos na Steam</p>
-      <p class="price">Esgotado</p>
-      <span class="btn soldout">Esgotado</span>
+      <img src="https://i.imgur.com/RxiGCxD.png" alt="Netflix">
+      <h3>Netflix - 1 mês</h3>
+      <button onclick="scrollToCheckout()">Comprar agora</button>
     </div>
-  </section>
+    <div class="product">
+      <img src="https://i.imgur.com/6OfvEVi.png" alt="Spotify">
+      <h3>Spotify - 3 meses</h3>
+      <button onclick="scrollToCheckout()">Comprar agora</button>
+    </div>
+    <div class="product">
+      <img src="https://i.imgur.com/mptxBJL.png" alt="PSN Card">
+      <h3>PSN Card - 20 USD</h3>
+      <button onclick="scrollToCheckout()">Comprar agora</button>
+    </div>
+  </div>
 
-  <a class="whatsapp" href="https://wa.me/258844598917" target="_blank">💬 Suporte</a>
+  <div class="checkout" id="checkout">
+    <h2>Finalizar Compra</h2>
+    <div class="mpesa-box">
+      Envia o pagamento para:<br />
+      <strong>+258 844 598 917</strong><br />
+      Nome da conta: <strong>Celeste</strong>
+    </div>
+    <input type="text" placeholder="Teu nome completo" />
+    <input type="email" placeholder="Teu e-mail" />
+    <input type="text" placeholder="Número de telefone" />
+    <button onclick="showNotification()">Comprar agora</button>
+  </div>
+
+  <div class="floating-whatsapp" onclick="window.open('https://wa.me/258844598917', '_blank')">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" />
+    Suporte
+  </div>
+
+  <div class="notification" id="notif">💬 João comprou 20 USD Steam na PremierBet</div>
+
+  <script>
+    function scrollToCheckout() {
+      document.getElementById("checkout").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showNotification() {
+      const notif = document.getElementById("notif");
+      notif.style.display = "block";
+      setTimeout(() => notif.style.display = "none", 10000);
+    }
+
+    // Aleatorizar nomes de casas de apostas
+    const casas = ["888bet", "Elephantbet", "Premierbet", "Betway", "Placard", "Hollywoodbet", "Winnerbet"];
+    const produtos = ["10 USD Google Play", "Netflix 1 mês", "Spotify 3 meses", "Steam 20 USD", "PSN 20 USD"];
+    const nomes = ["João", "Carlos", "Bruna", "Luana", "Pedro", "Inês", "Mauro"];
+
+    function gerarNotificacaoFake() {
+      const nome = nomes[Math.floor(Math.random() * nomes.length)];
+      const produto = produtos[Math.floor(Math.random() * produtos.length)];
+      const casa = casas[Math.floor(Math.random() * casas.length)];
+      document.getElementById("notif").textContent = `💬 ${nome} comprou ${produto} na ${casa}`;
+    }
+
+    setInterval(() => {
+      gerarNotificacaoFake();
+      showNotification();
+    }, 25000); // a cada 25 segundos
+  </script>
 </body>
 </html>
