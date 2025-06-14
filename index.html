@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClickShopit - Loja Digital</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+    body { background: #f2f2f2; }
+    header { background: #111; color: white; padding: 20px; text-align: center; font-size: 24px; }
+    .products { display: flex; overflow-x: auto; padding: 20px; gap: 20px; }
+    .product { background: white; border-radius: 8px; min-width: 250px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 15px; flex-shrink: 0; }
+    .product img { width: 100%; border-radius: 5px; }
+    .product h3 { font-size: 18px; margin: 10px 0; }
+    .product p { font-size: 14px; color: #555; }
+    .price { font-weight: bold; color: #1a8917; margin: 10px 0; }
+    .btn { display: inline-block; padding: 10px; background: #1a8917; color: white; text-decoration: none; border-radius: 5px; text-align: center; margin-top: 5px; }
+    .btn.soldout { background: #aaa; pointer-events: none; }
+    .whatsapp { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50px; padding: 12px 20px; text-decoration: none; box-shadow: 0 4px 8px rgba(0,0,0,0.2); font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>ClickShopit - Produtos Digitais</header>
+
+  <section class="products">
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Google_Play_2022_icon.svg" alt="Google Play">
+      <h3>Gift Card Google Play - $10</h3>
+      <p>Entrega automática por e-mail</p>
+      <p class="price">950 MZN</p>
+      <a class="btn" href="checkout.html">Comprar agora</a>
+    </div>
+
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Apple_iTunes_logo.svg" alt="iTunes">
+      <h3>Gift Card iTunes - $10</h3>
+      <p>Válido na App Store e iTunes</p>
+      <p class="price">970 MZN</p>
+      <a class="btn" href="checkout.html">Comprar agora</a>
+    </div>
+
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Steam_icon_logo.svg" alt="Steam">
+      <h3>Gift Card Steam - $10</h3>
+      <p>Ideal para jogos na Steam</p>
+      <p class="price">Esgotado</p>
+      <span class="btn soldout">Esgotado</span>
+    </div>
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/258844598917" target="_blank">💬 Suporte</a>
+</body>
+</html>
